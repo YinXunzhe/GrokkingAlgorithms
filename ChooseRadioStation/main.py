@@ -1,10 +1,5 @@
-# 这是一个示例 Python 脚本。
+# 使用贪婪算法求广播站覆盖问题的近似最优解
 
-# 按 Shift+F10 执行或将其替换为您的代码。
-# 按 双击 Shift 在所有地方搜索类、文件、工具窗口、操作和设置。
-
-
-# 按间距中的绿色按钮以运行脚本。
 if __name__ == '__main__':
 
     states_needed = set(["mt", "wa", "or", "id", "nv", "ut", "ca", "az"])
@@ -32,5 +27,3 @@ if __name__ == '__main__':
         states_needed -=states_covered
 
     print(final_stations)
-
-# 访问 https://www.jetbrains.com/help/pycharm/ 获取 PyCharm 帮助
