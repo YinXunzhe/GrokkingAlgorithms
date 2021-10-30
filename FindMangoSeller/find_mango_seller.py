@@ -18,7 +18,7 @@ def find_mango_seller(graph):
             if is_mango_seller(person):
                 return person + " is a mango seller!"
             else:
-                checked_person += person
+                checked_person.append(person)
                 search_queue += graph[person]
     return False
 
