@@ -1,36 +1,11 @@
 # 记录已经处理过的节点
 processed = []
 
-def find_lowest_cost():
+def find_lowest_cost(graph,costs,parents):
     """
     在权重图中找到最小开销
     :return:
     """
-    # 表示加权图的字典，
-    # key为节点名称，value为表示到下一节点的字典（key为下一节点，value为到此的开销）
-    graph={}
-    graph["start"]={}
-    graph["start"]["a"]=6
-    graph["start"]["b"]=2
-    graph["a"]={}
-    graph["a"]["fin"]=1
-    graph["b"]={}
-    graph["b"]["a"]=3
-    graph["b"]["fin"]=5
-    graph["fin"]={}
-
-    # 记录经当前节点可到达的节点的最小开销
-    costs={}
-    infinity=float("inf")
-    costs["a"]=6
-    costs["b"]=2
-    costs["fin"]=infinity
-
-    # 记录最小开销时各节点的父节点
-    parents={}
-    parents["a"]="start"
-    parents["b"]="start"
-    parents["fin"]=None
 
     # 找到开销表中还未处理过且为最小开销的节点
     node=find_lowest_cost_node(costs)
