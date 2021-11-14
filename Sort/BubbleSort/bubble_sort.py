@@ -5,7 +5,5 @@ def bubble_sort(list):
     for i in range(l):
         for j in range(l-1,i,-1):
             if list[j]<list[j-1]:
-                temp=list[j-1]
-                list[j-1]=list[j]
-                list[j]=temp
+                list[j-1],list[j]=list[j],list[j-1]
     return list
