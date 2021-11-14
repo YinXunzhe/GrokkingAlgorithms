@@ -12,5 +12,6 @@ def selection_sort(list):
     sorted_list=[]
     while(len(list)!=0):
         smallest_index=find_smallest(list)
+        # 把最小的元素从原数组中弹出，并放入新的数组
         sorted_list.append(list.pop(smallest_index))
     return sorted_list

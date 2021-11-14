@@ -17,11 +17,11 @@ class MyTestCase(unittest.TestCase):
         list=[2,1]
         sorted_list=merge_sort(list)
         self.assertEqual([1,2],sorted_list)
-    def test_merge_sort_Multi(self):
+    def test_merge_sort_Multi_Odd(self):
         list=[2,1,6,3,8]
         sorted_list=merge_sort(list)
         self.assertEqual([1,2,3,6,8],sorted_list)
-    def test_merge_sort_Multi_oushu(self):
+    def test_merge_sort_Multi_Even(self):
         list=[2,1,6,3]
         sorted_list=merge_sort(list)
         self.assertEqual([1,2,3,6],sorted_list)

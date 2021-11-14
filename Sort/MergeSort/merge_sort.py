@@ -17,6 +17,7 @@ def merge(list1, list2):
     n=len(list2)
     merged_list=[]
     i=j=0
+    #  for range 不适合对索引需要分类控制的情况
     while i<m and j<n:
         if list1[i]>list2[j]:
             merged_list.append(list2[j])
