@@ -1,5 +1,6 @@
 from collections import deque
 
+
 def find_mango_seller(graph):
     """
     使用广度优先搜索算法找到我的人脉中销售芒果的人

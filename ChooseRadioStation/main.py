@@ -16,16 +16,16 @@ if __name__ == '__main__':
     final_stations = set()
 
     while states_needed:
-        best_station=None
-        states_covered=set()
+        best_station = None
+        states_covered = set()
         # 遍历剩余的广播站，找出可覆盖还需覆盖州数目做多的作为best station
         for station, states_for_station in stations.items():
             covered = states_needed & states_for_station
             if len(covered) > len(states_covered):
-                states_covered=covered
+                states_covered = covered
                 best_station = station
 
         final_stations.add(best_station)
-        states_needed -=states_covered
+        states_needed -= states_covered
 
     print(final_stations)

@@ -9,27 +9,26 @@ def merge_sort(list):
         m = n // 2
         list1 = merge_sort(list[:m])
         list2 = merge_sort(list[m:])
-        merged_list=merge(list1, list2)
+        merged_list = merge(list1, list2)
         return merged_list
+
 
 def merge(list1, list2):
     m = len(list1)
-    n=len(list2)
-    merged_list=[]
-    i=j=0
+    n = len(list2)
+    merged_list = []
+    i = j = 0
     #  for range 不适合对索引需要分类控制的情况
-    while i<m and j<n:
-        if list1[i]>list2[j]:
+    while i < m and j < n:
+        if list1[i] > list2[j]:
             merged_list.append(list2[j])
-            j+=1
+            j += 1
         else:
             merged_list.append(list1[i])
-            i+=1
+            i += 1
     # 应根据索引和数组大小的对比补充剩余元素，而非i和j的大小
-    if i<m:
-        merged_list+=list1[i:]
-    if j<n:
+    if i < m:
+        merged_list += list1[i:]
+    if j < n:
         merged_list += list2[j:]
     return merged_list
-
-

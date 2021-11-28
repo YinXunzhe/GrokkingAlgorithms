@@ -1,7 +1,6 @@
 from find_lowest_cost import find_lowest_cost
 
 if __name__ == '__main__':
-
     # 表示加权图的字典，
     # key为节点名称，value也是字典（key为可到的下一节点，value为到下一节点的开销）
     graph = {}
@@ -129,6 +128,5 @@ if __name__ == '__main__':
     # parents["c"] = None
     # parents["fin"] = None
 
-    ans=find_lowest_cost(graph,costs,parents)
+    ans = find_lowest_cost(graph, costs, parents)
     print(ans)
-

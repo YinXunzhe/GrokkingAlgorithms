@@ -7,7 +7,7 @@ class MyTestCase(unittest.TestCase):
         # 测试找不到的情况
         graph = {"you": ["alice", "bob", "claire"], "bob": ["anuj", "peggy"], "alice": ["peggy"],
                  "claire": ["jonny", "thon"], "anuj": [], "peggy": [], "jonny": [], "thon": []}
-        mango_seller=find_mango_seller(graph)
+        mango_seller = find_mango_seller(graph)
         self.assertEqual(mango_seller, False)  # add assertion here
 
     def test_multi_seller(self):
