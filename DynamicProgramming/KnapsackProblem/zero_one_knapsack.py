@@ -8,7 +8,7 @@ def steal_samrtly(capacity: int, goods: dict):
     """
     n=len(goods)
     goods_list=[0]+list(goods.keys())
-    goods_steal=set()
+    goods_steal=set() # good_steal:可偷得的最大价值物品集合
 
     # 创建动态规划网格:table，
     # 横坐标为 1，2，...capacity 的背包容量；纵坐标为 物品1,物品2....物品n
@@ -28,10 +28,28 @@ def steal_samrtly(capacity: int, goods: dict):
                 v_steal_current_good=current_value+table[i-1][left_cap]
             else:
                 v_steal_current_good=0
-            # 目前可偷得最大值为（上一个单元格的值）与 当前商品价值加上剩余空间价值 的较大值
+            # 目前可偷得最大值=（上一个单元格的值）与 （当前商品价值加上剩余空间最大值） 的较大值
             table[i][j] = max(table[i - 1][j], v_steal_current_good)
 
-    return table[-1][-1]
+    # 回溯应该偷的物品
+    i=n
+    j=capacity
+    while i>0:
+        if table[i][j]> table[i - 1][j]:
+            # 如果当前最大值超过上一个单元格的值，肯定偷了当前物品
+            stealed_good=goods_list[i]
+            goods_steal.add(stealed_good)
+            i-=1
+            j-=goods[stealed_good][1]
+        else:
+            # 否则未偷该物品，继续回溯前一步的物品状态
+            i-=1
+
+
+
+    max_value=table[-1][-1]
+
+    return {max_value:goods_steal}
 
 
 
