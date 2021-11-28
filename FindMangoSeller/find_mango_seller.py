@@ -1,17 +1,17 @@
 from collections import deque
 
-
 def find_mango_seller(graph):
     """
     使用广度优先搜索算法找到我的人脉中销售芒果的人
     :param graph: 散列表，表示人际关系图
     :return: string（*** is a mango seller!） or False
     """
-    # 记录检查过的人，防止反向关系导致死循环
-    checked_person = []
     # 创建一个队列，记录依次待检查的人
+    # 使用deque双端队列确保按添加的顺序进行检查和删除
     search_queue = deque()
     search_queue += graph["you"]
+    # 记录检查过的人，防止反向关系导致死循环
+    checked_person = []
     while search_queue:
         person = search_queue.popleft()
         if person not in checked_person:

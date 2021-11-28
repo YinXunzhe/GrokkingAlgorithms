@@ -3,7 +3,7 @@ from find_lowest_cost import find_lowest_cost
 if __name__ == '__main__':
 
     # 表示加权图的字典，
-    # key为节点名称，value为表示到下一节点的字典（key为下一节点，value为到此的开销）
+    # key为节点名称，value也是字典（key为可到的下一节点，value为到下一节点的开销）
     graph = {}
     graph["start"] = {}
     graph["start"]["a"] = 6

@@ -1,0 +1,34 @@
+def longest_common_subsequence(str1,str2):
+    """
+    找出两个字符串中的最长公共子序列的长度
+    :param str1:字符串1
+    :param str2: 字符串2
+    :return:最长公共子序列的长度
+    """
+    m=len(str1)
+    n=len(str2)
+    table=[[0 for col in range(m)] for row in range(n)]
+
+    for i in range(m):
+        for j in range(n):
+            if i==0 and j==0:
+                if str2[j] == str1[i]:
+                    table[i][j]=1
+                else:
+                    table[i][j]=0
+            elif i==0 and j>0:
+                if str2[j] == str1[i]:
+                    table[i][j]=table[i][j-1]+1
+                else:
+                    table[i][j]=table[i][j-1]
+            elif i>0 and j==0:
+                if str2[j] == str1[i]:
+                    table[i][j]=table[i-1][j]+1
+                else:
+                    table[i][j]=table[i-1][j]
+            else:
+                if str2[j]==str1[i]:
+                    table[i][j]=table[i-1][j-1]+1
+                else:
+                    table[i][j]=max(table[i-1][j],table[i][j-1])
+    return max(max(table))
