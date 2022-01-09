@@ -11,7 +11,8 @@ def longest_common_substring(str1, str2):
         table = [[0 for col in range(n)] for row in range(m)]
     else:
         return 0
-
+    # table[i][j]状态定义为以str1[i]和str2[j]结尾的公共子串的最长公共子串长度
+    # 若str2[j] != str1[i]，以str1[i]和str2[j]结尾不可能组成公共子串，此时长度为0
     for i in range(m):
         for j in range(n):
             if str2[j] == str1[i]:
